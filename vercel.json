@@ -18,7 +18,8 @@
               { "source": "/support", "destination": "/support.html" },
               { "source": "/privacy", "destination": "/privacy.html" },
               { "source": "/coming-soon", "destination": "/coming-soon.html" },
-              { "source": "/resources", "destination": "/resources.html" }
+              { "source": "/resources", "destination": "/resources.html" },
+              { "source": "/delete-account", "destination": "/delete-account.html" }
       ],
       "headers": [
               {
