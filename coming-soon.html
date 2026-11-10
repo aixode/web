@@ -231,7 +231,6 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 .foot-brand p{color:var(--text-muted);font-size:15px;margin:16px 0 22px;max-width:280px;}
 .socials{display:flex;gap:10px;flex-wrap:wrap;}
 .socials a{width:40px;height:40px;border-radius:12px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:18px;color:rgba(255,255,255,0.8);transition:border-color .2s,color .2s,background .2s;}
-.socials a:hover{border-color:var(--orange);color:var(--orange-text);background:var(--orange-dim);}
 .foot-col h4{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dim);margin-bottom:18px;}
 .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
 .foot-col a{font-size:15px;color:rgba(255,255,255,0.72);transition:color .2s;}
@@ -391,6 +390,22 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 .drop-item.active .drop-title{color:var(--orange-text);}
 .m-link.active,.m-toggle.active span{text-decoration:underline;text-decoration-color:var(--orange);text-decoration-thickness:2px;text-underline-offset:10px;}
 .m-sub a.active{color:#fff;}
+
+.store .store-logo{width:28px;height:28px;flex-shrink:0;}
+.foot-bottom .flag{width:22px;height:16px;border-radius:2px;display:inline-block;}
+/* Brand-colored social icons */
+.socials a{border:none;color:#fff;}
+.socials a.soc-instagram{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);}
+.socials a.soc-tiktok{background:#000;border:1px solid rgba(255,255,255,0.18);}
+.socials a.soc-tiktok i{text-shadow:-1.5px -1px 0 #25F4EE,1.5px 1px 0 #FE2C55;}
+.socials a.soc-snapchat{background:#FFFC00;color:#000;}
+.socials a.soc-facebook{background:#1877F2;}
+.socials a.soc-linkedin{background:#0A66C2;}
+.socials a:hover{transform:translateY(-2px);opacity:.9;}
+.socials a{transition:transform .2s,opacity .2s;}
+/* Cookie banner: truly hidden when closed, so it can't block clicks */
+.cookie[hidden]{display:none;}
+.cookie:not(.show){pointer-events:none;}
 </style>
 </head>
 <body>
@@ -510,11 +525,11 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
         <p>Screen less. Live more.</p>
         <!-- TODO: replace "#" with the real Instagram, TikTok, Snapchat and Facebook profile links -->
         <div class="socials">
-          <a href="#" aria-label="Aixode on Instagram" target="_blank" rel="noopener"><i class="ph-bold ph-instagram-logo"></i></a>
-          <a href="#" aria-label="Aixode on TikTok" target="_blank" rel="noopener"><i class="ph-bold ph-tiktok-logo"></i></a>
-          <a href="#" aria-label="Aixode on Snapchat" target="_blank" rel="noopener"><i class="ph-bold ph-snapchat-logo"></i></a>
-          <a href="#" aria-label="Aixode on Facebook" target="_blank" rel="noopener"><i class="ph-bold ph-facebook-logo"></i></a>
-          <a href="https://www.linkedin.com/company/aixode" aria-label="Aixode on LinkedIn" target="_blank" rel="noopener"><i class="ph-bold ph-linkedin-logo"></i></a>
+          <a href="#" class="soc-instagram" aria-label="Aixode on Instagram" target="_blank" rel="noopener"><i class="ph-bold ph-instagram-logo"></i></a>
+          <a href="#" class="soc-tiktok" aria-label="Aixode on TikTok" target="_blank" rel="noopener"><i class="ph-bold ph-tiktok-logo"></i></a>
+          <a href="#" class="soc-snapchat" aria-label="Aixode on Snapchat" target="_blank" rel="noopener"><i class="ph-bold ph-snapchat-logo"></i></a>
+          <a href="#" class="soc-facebook" aria-label="Aixode on Facebook" target="_blank" rel="noopener"><i class="ph-bold ph-facebook-logo"></i></a>
+          <a href="https://www.linkedin.com/company/aixode" class="soc-linkedin" aria-label="Aixode on LinkedIn" target="_blank" rel="noopener"><i class="ph-bold ph-linkedin-logo"></i></a>
         </div>
       </div>
       <div class="foot-col"><h4>Product</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#how-it-works">How it works</a></li><li><a href="/coming-soon">Coming soon</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/#download">Download</a></li></ul></div>
@@ -524,7 +539,7 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 Aixode · Org. no. 936 051 901 · <button type="button" class="cookie-link" id="cookieSettings">Cookie settings</button></span>
-      <span class="made">Built in Norway 🇳🇴</span>
+      <span class="made">Made in Norway <svg class="flag" viewBox="0 0 22 16" aria-hidden="true"><rect width="22" height="16" rx="2" fill="#BA0C2F"/><path d="M6 0h4v16H6zM0 6h22v4H0z" fill="#fff"/><path d="M7 0h2v16H7zM0 7h22v2H0z" fill="#00205B"/></svg></span>
     </div>
   </div>
 </footer>
