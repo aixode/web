@@ -410,6 +410,17 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 /* Cookie banner: truly hidden when closed, so it can't block clicks */
 .cookie[hidden]{display:none;}
 .cookie:not(.show){pointer-events:none;}
+
+/* Plain orange icons (no background box), site-wide */
+.drop-icon,.aud-icon,.soon-card>i,.trust-card>i,.teaser-icon,.icon-chip{background:none!important;border:none!important;border-radius:0!important;width:auto!important;height:auto!important;color:var(--orange-text)!important;line-height:1;}
+.drop-icon{font-size:22px!important;width:26px!important;justify-content:flex-start!important;padding-top:2px;}
+.aud-icon{font-size:34px!important;justify-content:flex-start!important;}
+.soon-card>i{font-size:30px!important;justify-content:flex-start!important;}
+.trust-card>i{font-size:34px!important;}
+.teaser-icon{font-size:30px!important;}
+.icon-chip{font-size:30px!important;}
+.empty-state .icon-chip{font-size:44px!important;}
+.aside-card .icon-chip{font-size:26px!important;}
 </style>
 </head>
 <body>

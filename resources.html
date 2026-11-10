@@ -418,6 +418,7 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 
 
 
+
 /* ---------- Shared subpage components ---------- */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:30px 28px;}
 .card h3{font-size:20px;font-weight:700;margin-bottom:10px;}
@@ -557,6 +558,17 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 .topic i{color:var(--orange-text);font-size:22px;margin-bottom:12px;display:block;}
 .topic b{display:block;font-family:'Figtree',sans-serif;font-size:16px;margin-bottom:4px;}
 .topic span{font-size:14px;color:var(--text-muted);line-height:1.55;}
+
+/* Plain orange icons (no background box), site-wide */
+.drop-icon,.aud-icon,.soon-card>i,.trust-card>i,.teaser-icon,.icon-chip{background:none!important;border:none!important;border-radius:0!important;width:auto!important;height:auto!important;color:var(--orange-text)!important;line-height:1;}
+.drop-icon{font-size:22px!important;width:26px!important;justify-content:flex-start!important;padding-top:2px;}
+.aud-icon{font-size:34px!important;justify-content:flex-start!important;}
+.soon-card>i{font-size:30px!important;justify-content:flex-start!important;}
+.trust-card>i{font-size:34px!important;}
+.teaser-icon{font-size:30px!important;}
+.icon-chip{font-size:30px!important;}
+.empty-state .icon-chip{font-size:44px!important;}
+.aside-card .icon-chip{font-size:26px!important;}
 
 @media (max-width:900px){
   .grid-3,.topic-grid{grid-template-columns:repeat(2,1fr);}
