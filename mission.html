@@ -600,6 +600,24 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 
 .foot-col .cookie-link{font-size:15px;color:rgba(var(--fg-rgb),0.72);text-decoration:none;text-align:left;transition:color .2s;}
 .foot-col .cookie-link:hover{color:var(--fg);}
+/* iPhone / Android help */
+.pf-android{display:none;}
+:root[data-platform="android"] .pf-android{display:block;}
+:root[data-platform="android"] .pf-ios{display:none;}
+.faq details.pf-android{display:none;}
+:root[data-platform="android"] .faq details.pf-android{display:block;}
+.platform-switch{display:inline-flex;align-items:center;gap:6px;margin-top:22px;padding:5px;border:1px solid var(--border2);border-radius:100px;background:var(--surface);font-size:14px;}
+.platform-switch span{color:var(--text-muted);padding:0 8px 0 12px;}
+.platform-switch button{display:inline-flex;align-items:center;gap:7px;border:none;background:none;color:var(--text-muted);font:inherit;font-size:14px;font-weight:600;padding:8px 16px;border-radius:100px;cursor:pointer;transition:background .2s,color .2s;}
+.platform-switch button[aria-pressed="true"]{background:var(--orange);color:#000;}
+.platform-switch button:not([aria-pressed="true"]):hover{color:var(--fg);}
+.faq .answer .steps-list{margin:8px 0 12px 20px;}
+.faq .answer .steps-list+.steps-list{margin-left:44px;margin-top:-4px;list-style:lower-alpha;}
+.howto-video{margin:16px 0 8px;max-width:240px;}
+.howto-video video{display:block;width:100%;height:auto;border-radius:26px;border:4px solid #1c1f27;background:#000;box-shadow:0 16px 40px rgba(0,0,0,0.35);}
+.howto-video figcaption{font-size:13px;color:var(--text-dim);margin-top:8px;}
+@media (max-width:600px){.platform-switch span{display:none;}}
+
 @media (min-width:901px){.soon-grid{grid-template-columns:repeat(3,1fr);}}
 @media (max-width:900px){
   .grid-3,.topic-grid{grid-template-columns:repeat(2,1fr);}
