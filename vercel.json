@@ -16,7 +16,8 @@
               { "source": "/about", "destination": "/about.html" },
               { "source": "/pricing", "destination": "/pricing.html" },
               { "source": "/support", "destination": "/support.html" },
-              { "source": "/privacy", "destination": "/privacy.html" }
+              { "source": "/privacy", "destination": "/privacy.html" },
+              { "source": "/coming-soon", "destination": "/coming-soon.html" }
       ],
       "headers": [
               {
