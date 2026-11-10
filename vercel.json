@@ -19,7 +19,8 @@
               { "source": "/privacy", "destination": "/privacy.html" },
               { "source": "/coming-soon", "destination": "/coming-soon.html" },
               { "source": "/resources", "destination": "/resources.html" },
-              { "source": "/delete-account", "destination": "/delete-account.html" }
+              { "source": "/delete-account", "destination": "/delete-account.html" },
+              { "source": "/terms", "destination": "/terms.html" }
       ],
       "headers": [
               {
