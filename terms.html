@@ -294,10 +294,8 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 @media (max-width:600px){
   :root{--gutter:16px;}
   .hero-title{letter-spacing:-2.5px;}
-  .hero-actions .btn{width:100%;}
   .trust .sep{display:none;}
   .steps,.t-grid{grid-template-columns:1fr;}
-  .store{width:100%;justify-content:center;}
   .announce{font-size:13px;}
   .h2{letter-spacing:-1.2px;}
 }
@@ -393,7 +391,18 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
   .teaser{flex-direction:column;align-items:flex-start;gap:14px;padding:22px;}
   .page-hero{padding:72px 0 48px;}
   .page-hero h1{letter-spacing:-1.8px;}
-  .page-cta .actions .btn{width:100%;}
+  .page-cta .actions .btn{width:auto;}
+  /* Button pairs sit side by side on phones; a single button gets the same (half) width */
+  .hero-actions,.actions,.stores{display:flex;flex-wrap:wrap;gap:12px!important;}
+  .hero-actions>.btn,.actions>.btn,.stores>.store{flex:0 0 calc(50% - 6px);max-width:calc(50% - 6px);min-width:0;width:auto;}
+  .hero-actions>.btn,.actions>.btn{padding:14px 10px;font-size:14px;gap:8px;white-space:nowrap;}
+  .stores>.store{padding:10px 8px;gap:8px;justify-content:center;}
+  .stores>.store .store-logo{width:24px;height:24px;}
+  .store small{font-size:10px;}
+  .store b{font-size:16px;}
+}
+@media (max-width:359px){
+  .hero-actions>.btn,.actions>.btn,.stores>.store{flex-basis:100%;max-width:100%;}
 }
 
 /* Active page indicator (orange underline, as on the current site) */
