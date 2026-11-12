@@ -578,6 +578,15 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 .field select option{background:var(--bg3);}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--orange);}
 .field textarea{resize:vertical;min-height:120px;}
+.field input,.field select{height:52px;}
+.form-msg:empty{display:none;}
+/* Desktop: the form box ends on the same line as the cards beside it (the message field fills the space) */
+@media (min-width:901px){
+  .contact-grid{align-items:stretch;}
+  .contact-grid .form-card{display:flex;flex-direction:column;}
+  .contact-grid .form-card .field-grow{flex:1;display:flex;flex-direction:column;}
+  .contact-grid .form-card .field-grow textarea{flex:1;min-height:90px;resize:none;}
+}
 .row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .form-card .btn{width:100%;margin-top:6px;}
 .form-msg{margin-top:14px;font-size:14px;min-height:20px;}
@@ -817,7 +826,7 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
               <option value="">Select a topic</option><option>General question</option><option>Bug report</option><option>Feature request</option><option>Privacy / data</option><option>Feedback</option><option>Other</option>
             </select></div>
         </div>
-        <div class="field"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" required></textarea></div>
+        <div class="field field-grow"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" required></textarea></div>
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit" class="btn btn-primary">Send message <i class="ph-bold ph-paper-plane-tilt"></i></button>
         <p class="form-msg" id="cf-status" role="status"></p>
