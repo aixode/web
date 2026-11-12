@@ -122,6 +122,24 @@ section{scroll-margin-top:80px;}
 .announce a{display:inline;}
 .announce strong{color:var(--fg);font-weight:600;}
 .announce .arrow{color:var(--orange-text);font-weight:700;}
+/* Announcement bar: moving ticker (pauses on hover/focus, pause button, static for reduced motion) */
+.announce{position:relative;overflow:hidden;text-align:left;padding:10px 0;}
+.announce-link{display:block;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.marquee{display:block;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 92%,transparent);}
+.marquee-track{display:inline-flex;align-items:center;white-space:nowrap;animation:aixMarquee 48s linear infinite;will-change:transform;}
+.m-item{padding:0 26px;}
+.m-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0;}
+@keyframes aixMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.announce:hover .marquee-track,.announce:focus-within .marquee-track,.announce.paused .marquee-track{animation-play-state:paused;}
+.marquee-pause{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:8px;border:1px solid var(--orange-line);background:var(--bg);color:var(--fg);display:flex;align-items:center;justify-content:center;font-size:12px;cursor:pointer;padding:0;}
+.marquee-pause:hover,.marquee-pause:focus-visible{border-color:var(--orange);}
+@media (prefers-reduced-motion:reduce){
+  .marquee-track{animation:none;display:flex;justify-content:center;}
+  .marquee-track>*:not(:first-child){display:none;}
+  .marquee{-webkit-mask-image:none;mask-image:none;}
+  .marquee-pause{display:none;}
+}
 
 /* Navigation */
 .site-header{position:sticky;top:0;z-index:100;background:var(--header-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
@@ -418,7 +436,8 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 /* Brand-colored social icons */
 .socials a{border:none;color:#fff;}
 .socials a.soc-instagram{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);}
-.socials a.soc-tiktok{background:#000;border:1px solid rgba(var(--fg-rgb),0.18);}
+.socials a.soc-tiktok{background:#fff;color:#000;border:none;}
+:root[data-theme="light"] .socials a.soc-tiktok{background:#000;color:#fff;}
 .socials a.soc-tiktok i{text-shadow:-1.5px -1px 0 #25F4EE,1.5px 1px 0 #FE2C55;}
 .socials a.soc-snapchat{background:#FFFC00;color:#000;}
 .socials a.soc-facebook{background:#1877F2;}
@@ -455,9 +474,9 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 :root[data-theme="light"]{--bg:#ffffff;--bg2:#f5f5f7;--bg3:#ffffff;--fg:#0d0f14;--fg-rgb:13,15,20;--header-bg:rgba(255,255,255,0.86);color-scheme:light;}
 /* Form field borders visible in both themes (WCAG 1.4.11) */
 :root .field input,:root .field select,:root .field textarea,:root .help-search input{border-color:rgba(var(--fg-rgb),0.38);}
-/* Light mode readability (WCAG 2.1 AA): darker text, deeper orange for text and icons, visible form borders */
-:root[data-theme="light"]{--orange-text:#B93E0C;--text-muted:rgba(var(--fg-rgb),0.68);--text-dim:rgba(var(--fg-rgb),0.6);}
-:root[data-theme="light"] .page-hero h1 span,:root[data-theme="light"] h2 span,:root[data-theme="light"] .hero-title .accent{color:#E85A1A;}
+/* Light mode readability (WCAG 2.1 AA): darker grey text, deeper orange for small orange text, visible form borders */
+:root[data-theme="light"]{--text-muted:rgba(var(--fg-rgb),0.68);--text-dim:rgba(var(--fg-rgb),0.6);}
+:root[data-theme="light"] :is(.eyebrow,.text-link,.announce .arrow,.compare .later,.cookie p a,.drop-item.active .drop-title,.m-sub a.active,.faq .answer a,.faq-empty a,.inline-link,.plan-tag.later,.soon-tag,.prose a,.prose .cookie-link,.team-contact a,.num-card sup a){color:#B93E0C;}
 :root[data-theme="light"] .field input,:root[data-theme="light"] .field select,:root[data-theme="light"] .field textarea,:root[data-theme="light"] .help-search input{border-color:rgba(var(--fg-rgb),0.45);}
 :root[data-theme="light"] .field input:focus,:root[data-theme="light"] .field select:focus,:root[data-theme="light"] .field textarea:focus,:root[data-theme="light"] .help-search input:focus{border-color:var(--orange-text);}
 :root[data-theme="light"] .dropdown,:root[data-theme="light"] .cookie{box-shadow:0 20px 50px rgba(13,15,20,0.14);}
@@ -483,9 +502,18 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 <!-- End Google Tag Manager (noscript) -->
 
 <!-- ANNOUNCEMENT BAR -->
-<div class="announce">
-  <a href="#download"><strong>Launch edition is here</strong>, now on iOS and Android <span class="arrow">→</span></a>
+<div class="announce" id="announce">
+  <a href="#download" class="announce-link">
+    <span class="sr-only">Launch edition is here, now on iOS and Android</span>
+    <span class="marquee" aria-hidden="true"><span class="marquee-track"><span class="m-item"><strong>Launch edition is here</strong>, now on iOS and Android <span class="arrow">&rarr;</span></span><span class="m-dot"></span><span class="m-item"><strong>Launch edition is here</strong>, now on iOS and Android <span class="arrow">&rarr;</span></span><span class="m-dot"></span><span class="m-item"><strong>Launch edition is here</strong>, now on iOS and Android <span class="arrow">&rarr;</span></span><span class="m-dot"></span><span class="m-item"><strong>Launch edition is here</strong>, now on iOS and Android <span class="arrow">&rarr;</span></span><span class="m-dot"></span><span class="m-item"><strong>Launch edition is here</strong>, now on iOS and Android <span class="arrow">&rarr;</span></span><span class="m-dot"></span><span class="m-item"><strong>Launch edition is here</strong>, now on iOS and Android <span class="arrow">&rarr;</span></span><span class="m-dot"></span><span class="m-item"><strong>Launch edition is here</strong>, now on iOS and Android <span class="arrow">&rarr;</span></span><span class="m-dot"></span><span class="m-item"><strong>Launch edition is here</strong>, now on iOS and Android <span class="arrow">&rarr;</span></span><span class="m-dot"></span><span class="m-item"><strong>Launch edition is here</strong>, now on iOS and Android <span class="arrow">&rarr;</span></span><span class="m-dot"></span><span class="m-item"><strong>Launch edition is here</strong>, now on iOS and Android <span class="arrow">&rarr;</span></span><span class="m-dot"></span><span class="m-item"><strong>Launch edition is here</strong>, now on iOS and Android <span class="arrow">&rarr;</span></span><span class="m-dot"></span><span class="m-item"><strong>Launch edition is here</strong>, now on iOS and Android <span class="arrow">&rarr;</span></span><span class="m-dot"></span></span></span>
+  </a>
+  <button type="button" class="marquee-pause" id="marqueePause" aria-label="Pause the moving announcement" title="Pause"><i class="ph-bold ph-pause"></i></button>
 </div>
+<script>
+(function(){var a=document.getElementById('announce'),b=document.getElementById('marqueePause');if(!a||!b)return;
+b.addEventListener('click',function(){var p=a.classList.toggle('paused');b.innerHTML=p?'<i class="ph-bold ph-play"></i>':'<i class="ph-bold ph-pause"></i>';
+b.setAttribute('aria-label',p?'Play the moving announcement':'Pause the moving announcement');b.title=p?'Play':'Pause';});})();
+</script>
 
 <!-- NAVIGATION -->
 <header class="site-header">
