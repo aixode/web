@@ -94,7 +94,7 @@ a{color:inherit;text-decoration:none;}
 img{display:block;max-width:100%;}
 h1,h2,h3,h4{font-family:'Figtree',system-ui,sans-serif;line-height:1.1;}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter);}
-section{scroll-margin-top:80px;}
+section{scroll-margin-top:calc(80px + var(--ah,44px));}
 :focus-visible{outline:2px solid var(--orange);outline-offset:3px;border-radius:6px;}
 
 /* Shared type */
@@ -123,7 +123,9 @@ section{scroll-margin-top:80px;}
 .announce strong{color:var(--fg);font-weight:600;}
 .announce .arrow{color:var(--orange-text);font-weight:700;}
 /* Announcement bar: moving ticker (pauses on hover/focus, pause button, static for reduced motion) */
-.announce{position:relative;overflow:hidden;text-align:left;padding:10px 0;}
+.announce{position:relative;overflow:hidden;text-align:left;padding:10px 0;background:linear-gradient(90deg,rgba(255,107,43,0.16),rgba(255,107,43,0.06)),var(--bg);}
+/* Announcement + navigation stay visible while scrolling */
+.site-top{position:sticky;top:0;z-index:100;}
 .announce a.announce-link{display:block;max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter);}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 .marquee{display:block;position:relative;overflow:hidden;height:1.6em;line-height:1.6em;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
@@ -144,7 +146,7 @@ section{scroll-margin-top:80px;}
 }
 
 /* Navigation */
-.site-header{position:sticky;top:0;z-index:100;background:var(--header-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+.site-header{position:relative;z-index:100;background:var(--header-bg);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
 .nav{display:flex;align-items:center;gap:32px;height:72px;}
 .logo{display:block;width:126px;height:28px;overflow:hidden;flex-shrink:0;}
 .logo img{height:63px;width:auto;max-width:none;margin:-22px 0 0 -44px;}
@@ -280,7 +282,7 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 @media (max-width:1080px){
   .menu,.nav-cta{display:none;}
   .burger{display:flex;}
-  .mobile-panel{display:block;position:fixed;inset:72px 0 0 0;background:var(--bg);border-top:1px solid var(--border);padding:16px var(--gutter) 40px;overflow-y:auto;transform:translateX(100%);visibility:hidden;transition:transform .25s ease,visibility .25s;z-index:99;}
+  .mobile-panel{display:block;position:fixed;inset:calc(72px + var(--ah,44px)) 0 0 0;background:var(--bg);border-top:1px solid var(--border);padding:16px var(--gutter) 40px;overflow-y:auto;transform:translateX(100%);visibility:hidden;transition:transform .25s ease,visibility .25s;z-index:99;}
   .mobile-panel.open{transform:none;visibility:visible;}
   .m-group{border-bottom:1px solid var(--border);}
   .m-toggle,.m-link{display:flex;align-items:center;justify-content:space-between;width:100%;padding:18px 4px;background:none;border:none;color:var(--fg);font-family:'Figtree',sans-serif;font-size:19px;font-weight:700;cursor:pointer;text-align:left;}
@@ -504,6 +506,7 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 <!-- End Google Tag Manager (noscript) -->
 
 <!-- ANNOUNCEMENT BAR -->
+<div class="site-top" id="siteTop">
 <div class="announce" id="announce">
   <a href="#download" class="announce-link">
     <span class="sr-only">Launch edition available on iOS and Android. Download now!</span>
@@ -567,6 +570,10 @@ b.setAttribute('aria-label',p?'Play the moving announcement':'Pause the moving a
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel"><i class="ph-bold ph-list"></i></button>
   </div>
 </header>
+</div>
+<script>
+(function(){var a=document.getElementById('announce');if(!a)return;function set(){document.documentElement.style.setProperty('--ah',a.offsetHeight+'px');}set();addEventListener('resize',set);})();
+</script>
 
 <nav class="mobile-panel" id="mobilePanel" aria-label="Mobile">
   <div class="m-group">
