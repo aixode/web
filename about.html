@@ -574,7 +574,7 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 .form-card .muted{font-size:15px;color:var(--text-muted);margin-bottom:24px;}
 .field{display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
 .field label{font-size:13px;font-weight:500;color:rgba(var(--fg-rgb),0.75);}
-.field input,.field select,.field textarea{width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--border2);background:rgba(var(--fg-rgb),0.04);color:var(--fg);font:inherit;font-size:15px;outline:none;transition:border-color .2s;}
+.field input,.field select,.field textarea{width:100%;padding:13px 15px;border-radius:12px;border:1px solid var(--border2);background:var(--bg3);color:var(--fg);font:inherit;font-size:15px;outline:none;transition:border-color .2s;}
 .field select option{background:var(--bg3);}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--orange);}
 .field textarea{resize:vertical;min-height:120px;}
@@ -646,6 +646,9 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 .foot-col .cookie-link:hover{color:var(--fg);}
 /* iPhone / Android help */
 .pf-android{display:none;}
+.pfi-and{display:none;}
+:root[data-platform="android"] .pfi-and{display:inline;}
+:root[data-platform="android"] .pfi-ios{display:none;}
 :root[data-platform="android"] .pf-android{display:block;}
 :root[data-platform="android"] .pf-ios{display:none;}
 .faq details.pf-android{display:none;}
