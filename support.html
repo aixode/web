@@ -810,11 +810,13 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
           <div class="field"><label for="cf-first">First name</label><input id="cf-first" name="first" required autocomplete="given-name"></div>
           <div class="field"><label for="cf-last">Last name</label><input id="cf-last" name="last" required autocomplete="family-name"></div>
         </div>
-        <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" required autocomplete="email"></div>
-        <div class="field"><label for="cf-topic">Topic</label>
-          <select id="cf-topic" name="topic" required>
-            <option value="">Select a topic</option><option>General question</option><option>Bug report</option><option>Feature request</option><option>Privacy / data</option><option>Feedback</option><option>Other</option>
-          </select></div>
+        <div class="row-2">
+          <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="cf-topic">Topic</label>
+            <select id="cf-topic" name="topic" required>
+              <option value="">Select a topic</option><option>General question</option><option>Bug report</option><option>Feature request</option><option>Privacy / data</option><option>Feedback</option><option>Other</option>
+            </select></div>
+        </div>
         <div class="field"><label for="cf-msg">Message</label><textarea id="cf-msg" name="message" required></textarea></div>
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit" class="btn btn-primary">Send message <i class="ph-bold ph-paper-plane-tilt"></i></button>
