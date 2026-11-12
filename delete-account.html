@@ -256,6 +256,23 @@ section{scroll-margin-top:calc(80px + var(--ah,44px));}
 /* Footer */
 footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--bg);}
 .foot-grid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:40px;margin-bottom:64px;}
+/* Newsletter sign-up (footer, Brevo double opt-in) */
+.foot-news{display:flex;justify-content:space-between;align-items:center;gap:32px;padding:28px 32px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface);margin-bottom:56px;}
+.fn-title{font-family:'Figtree',sans-serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:6px;}
+.fn-copy p:not(.fn-title){color:var(--text-muted);font-size:15px;max-width:440px;}
+.fn-form{display:grid;grid-template-columns:1fr auto;gap:10px;width:min(100%,460px);flex-shrink:0;}
+.fn-form input[type=email]{height:52px;padding:0 16px;border-radius:12px;border:1px solid var(--border2);background:var(--bg3);color:var(--fg);font:inherit;font-size:15px;outline:none;transition:border-color .2s;min-width:0;}
+.fn-form input[type=email]::placeholder{color:var(--text-dim);}
+.fn-form input[type=email]:focus{border-color:var(--orange);}
+.fn-form .btn{height:52px;}
+.fn-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+.fn-note,.fn-msg{grid-column:1/-1;font-size:13px;color:var(--text-dim);}
+.fn-note a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
+.fn-msg:empty{display:none;}
+.fn-msg{font-size:14px;font-weight:500;}
+.fn-msg.ok{color:#7ee2a8;}.fn-msg.err{color:#ff8a80;}
+:root[data-theme="light"] .fn-msg.ok{color:#15803d;}:root[data-theme="light"] .fn-msg.err{color:#b91c1c;}
+@media (max-width:900px){.foot-news{flex-direction:column;align-items:stretch;padding:24px 20px;}.fn-form{width:100%;}}
 .foot-brand p{color:var(--text-muted);font-size:15px;margin:16px 0 22px;max-width:280px;}
 .foot-brand .why-link{display:inline-block;margin-top:6px;color:var(--orange-text);font-size:14px;font-weight:500;transition:opacity .2s;}
 .foot-brand .why-link:hover{opacity:.8;text-decoration:underline;text-underline-offset:3px;}
@@ -828,6 +845,21 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
+    <div class="foot-news">
+      <div class="fn-copy">
+        <p class="fn-title">Get tips and news from Aixode</p>
+        <p>Practical tips for less screen time, and news about the app. No spam, and you can unsubscribe at any time.</p>
+      </div>
+      <form class="fn-form" id="newsForm" action="https://b66a4857.sibforms.com/serve/MUIFACyEkWe0VV_aglPk_xAuhhsJywoVaP1nNJ6maUSzYya7T2ZpbFhn3SsOeHnhMQEWueFnFHIgdWUA8pVWuH3bbMrUp78e7fJd1qthxUzsz-xjXx0vtJ8mFautaLpxZQOd9I7k_mkjGjex4FsbVBTSnYUulOtmL5DWBSBhtC-f-RzZXoySQ5jVpj538DDzPehEYTfDsuOsuBjt8A==" method="post" novalidate>
+        <label for="nf-email" class="sr-only">Email address</label>
+        <input id="nf-email" type="email" name="EMAIL" placeholder="Your email address" autocomplete="email" required>
+        <input type="text" name="email_address_check" value="" class="fn-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="locale" value="en">
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+        <p class="fn-note">We'll send you an email to confirm your subscription. Read our <a href="/privacy">Privacy Policy</a>.</p>
+        <p class="fn-msg" id="nf-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
     <div class="foot-grid">
       <div class="foot-brand">
         <a href="/" class="logo" aria-label="Aixode home"><img class="logo-dark" src="/assets/aixode-logo.png" alt="Aixode"><img class="logo-light" src="/assets/aixode-logo-black.png" alt="Aixode"></a>
@@ -948,6 +980,28 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
     try{localStorage.setItem('aixode_theme',t);}catch(e){}saved=t;label();});}
   if(window.matchMedia){var mq=matchMedia('(prefers-color-scheme: light)');var on=function(e){if(saved!=='light'&&saved!=='dark'){root.setAttribute('data-theme',e.matches?'light':'dark');if(btn)label();}};
     if(mq.addEventListener)mq.addEventListener('change',on);else if(mq.addListener)mq.addListener(on);}
+})();
+</script>
+<script>
+/* Newsletter sign-up: sends the email to Brevo (double opt-in) */
+(function(){
+  var f=document.getElementById('newsForm');if(!f)return;
+  var st=document.getElementById('nf-status'),em=document.getElementById('nf-email');
+  function msg(t,c){st.textContent=t;st.className='fn-msg'+(c?' '+c:'');}
+  f.addEventListener('submit',async function(e){
+    e.preventDefault();
+    var v=em.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){msg('Please enter a valid email address.','err');em.focus();return;}
+    if(f.email_address_check.value)return;
+    var btn=f.querySelector('button');btn.disabled=true;msg('Sending...','');
+    var data=new FormData(f);data.set('EMAIL',v);
+    var ok=false;
+    try{var r=await fetch(f.action+'?isAjax=1',{method:'POST',body:data});var j=await r.json();ok=!!(j&&j.success);}
+    catch(err){try{await fetch(f.action,{method:'POST',body:data,mode:'no-cors'});ok=true;}catch(e2){ok=false;}}
+    btn.disabled=false;
+    if(ok){f.reset();msg('Almost done! Check your inbox and confirm your subscription.','ok');}
+    else{msg('Something went wrong. Please try again later.','err');}
+  });
 })();
 </script>
 
