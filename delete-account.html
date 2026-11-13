@@ -832,8 +832,10 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
     <form class="form-card del-form reveal" id="deleteForm" novalidate>
       <h3>Can't use the app? Send us a request</h3>
       <p class="muted">Fill in the email address you use for Aixode. We'll confirm by email before deleting your account, and complete the deletion within 30 days.</p>
-      <div class="field"><label for="df-email">Email address used for Aixode</label><input id="df-email" type="email" required autocomplete="email"></div>
-      <div class="field"><label for="df-name">Name (optional)</label><input id="df-name" autocomplete="name"></div>
+      <div class="row-2">
+        <div class="field"><label for="df-email">Email address used for Aixode</label><input id="df-email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="df-name">Name (optional)</label><input id="df-name" autocomplete="name"></div>
+      </div>
       <div class="field"><label for="df-msg">Anything else we should know? (optional)</label><textarea id="df-msg" style="min-height:90px"></textarea></div>
       <label class="check"><input type="checkbox" id="df-confirm"> I understand that my account and personal data will be permanently deleted.</label>
       <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
