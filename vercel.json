@@ -1,4 +1,6 @@
 {
+      "buildCommand": "node scripts/legal-sync.js",
+      "outputDirectory": ".",
       "redirects": [
               { "source": "/missionandvision", "destination": "/mission", "permanent": true },
               { "source": "/pricing-plans/plans-pricing", "destination": "/pricing", "permanent": true },
