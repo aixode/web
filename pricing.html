@@ -277,7 +277,7 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 .fn-os,.fn-form .btn{grid-column:1/-1;}
 .fn-os label,.fn-os span{min-width:0;}
 @media (max-width:520px){.fn-form{grid-template-columns:1fr;}}
-.fn-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+.fn-hp{display:none !important;}
 .fn-note,.fn-msg{grid-column:1/-1;font-size:13px;color:var(--text-dim);}
 .fn-note a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
 .fn-msg:empty{display:none;}
@@ -909,7 +909,7 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
           <label><input type="radio" name="LABEL" value="Website;iphone" required><span><i class="ph-bold ph-apple-logo" aria-hidden="true"></i>iPhone</span></label>
           <label><input type="radio" name="LABEL" value="Website;android"><span><i class="ph-bold ph-android-logo" aria-hidden="true"></i>Android</span></label>
         </fieldset>
-        <input type="text" name="email_address_check" value="" class="fn-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="text" name="nf_trap" value="" class="fn-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input type="hidden" name="locale" value="en">
         <button type="submit" class="btn btn-primary">Subscribe</button>
         <p class="fn-note">We'll send you an email to confirm your subscription. Read our <a href="/privacy">Privacy Policy</a>.</p>
@@ -1053,9 +1053,9 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
     var sp=nm.indexOf(' '),fn=sp<0?nm:nm.slice(0,sp),ln=sp<0?'':nm.slice(sp+1);
     var os=f.querySelector('input[name=LABEL]:checked'),osb=document.getElementById('nf-os');
     if(!os){osb.classList.add('invalid');msg('Please choose iPhone or Android, so we only send you news for your phone.','err');return;}
-    if(f.email_address_check.value)return;
+    if(f.nf_trap.value)return;
     var btn=f.querySelector('button[type=submit]'),bt=btn.textContent;btn.disabled=true;btn.textContent='Sending…';msg('','');
-    var data=new FormData(f);data.delete('FULLNAME');data.set('EMAIL',v);data.set('FIRSTNAME',fn);if(ln)data.set('LASTNAME',ln);
+    var data=new FormData(f);data.delete('FULLNAME');data.delete('nf_trap');data.set('email_address_check','');data.set('EMAIL',v);data.set('FIRSTNAME',fn);if(ln)data.set('LASTNAME',ln);
     var ok=false,why='';
     try{var r=await fetch(f.action+'?isAjax=1',{method:'POST',body:data});var j=await r.json();ok=!!(j&&j.success);if(!ok&&j&&j.message)why=j.message;}
     catch(err){try{await fetch(f.action,{method:'POST',body:data,mode:'no-cors'});ok=true;}catch(e2){ok=false;}}
