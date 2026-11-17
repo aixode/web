@@ -260,11 +260,21 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 .foot-news{display:flex;justify-content:space-between;align-items:center;gap:32px;padding:28px 32px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface);margin-bottom:56px;}
 .fn-title{font-family:'Figtree',sans-serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:6px;}
 .fn-copy p:not(.fn-title){color:var(--text-muted);font-size:15px;max-width:440px;}
-.fn-form{display:grid;grid-template-columns:1fr auto;gap:10px;width:min(100%,460px);flex-shrink:0;}
-.fn-form input[type=email]{height:52px;padding:0 16px;border-radius:12px;border:1px solid var(--border2);background:var(--bg3);color:var(--fg);font:inherit;font-size:15px;outline:none;transition:border-color .2s;min-width:0;}
-.fn-form input[type=email]::placeholder{color:var(--text-dim);}
-.fn-form input[type=email]:focus{border-color:var(--orange);}
+.fn-form{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:min(100%,480px);flex-shrink:0;}
+.fn-form input[type=email],.fn-form input[type=text]{height:52px;padding:0 16px;border-radius:12px;border:1px solid var(--border2);background:var(--bg3);color:var(--fg);font:inherit;font-size:15px;outline:none;transition:border-color .2s;min-width:0;}
+.fn-form input[type=email]::placeholder,.fn-form input[type=text]::placeholder{color:var(--text-dim);}
+.fn-form input[type=email]:focus,.fn-form input[type=text]:focus{border-color:var(--orange);}
 .fn-form .btn{height:52px;}
+.fn-os{display:grid;grid-template-columns:1fr 1fr;gap:10px;border:0;padding:0;margin:0;min-width:0;}
+.fn-os label{position:relative;cursor:pointer;}
+.fn-os input{position:absolute;opacity:0;width:1px;height:1px;}
+.fn-os span{display:flex;align-items:center;justify-content:center;gap:7px;height:52px;padding:0 10px;border-radius:12px;border:1px solid var(--border2);background:var(--bg3);color:var(--text-muted);font-size:15px;font-weight:600;transition:border-color .2s,color .2s,background .2s;}
+.fn-os span i{font-size:18px;}
+.fn-os label:hover span{color:var(--fg);}
+.fn-os input:checked+span{border-color:var(--orange);color:var(--fg);background:color-mix(in srgb,var(--orange) 12%,var(--bg3));}
+.fn-os input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px;}
+.fn-os.invalid span{border-color:#ff8a80;}
+@media (max-width:420px){.fn-form{grid-template-columns:1fr;}}
 .fn-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
 .fn-note,.fn-msg{grid-column:1/-1;font-size:13px;color:var(--text-dim);}
 .fn-note a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
@@ -879,8 +889,15 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
         <p>Practical tips for less screen time, and news about the app. No spam, and you can unsubscribe at any time.</p>
       </div>
       <form class="fn-form" id="newsForm" action="https://b66a4857.sibforms.com/serve/MUIFACyEkWe0VV_aglPk_xAuhhsJywoVaP1nNJ6maUSzYya7T2ZpbFhn3SsOeHnhMQEWueFnFHIgdWUA8pVWuH3bbMrUp78e7fJd1qthxUzsz-xjXx0vtJ8mFautaLpxZQOd9I7k_mkjGjex4FsbVBTSnYUulOtmL5DWBSBhtC-f-RzZXoySQ5jVpj538DDzPehEYTfDsuOsuBjt8A==" method="post" novalidate>
+        <label for="nf-name" class="sr-only">First name</label>
+        <input id="nf-name" type="text" name="FIRSTNAME" placeholder="First name" autocomplete="given-name" maxlength="60" required>
         <label for="nf-email" class="sr-only">Email address</label>
         <input id="nf-email" type="email" name="EMAIL" placeholder="Your email address" autocomplete="email" required>
+        <fieldset class="fn-os" id="nf-os">
+          <legend class="sr-only">Which phone do you use?</legend>
+          <label><input type="radio" name="LABEL" value="Website;iphone" required><span><i class="ph-bold ph-apple-logo" aria-hidden="true"></i>iPhone</span></label>
+          <label><input type="radio" name="LABEL" value="Website;android"><span><i class="ph-bold ph-android-logo" aria-hidden="true"></i>Android</span></label>
+        </fieldset>
         <input type="text" name="email_address_check" value="" class="fn-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input type="hidden" name="locale" value="en">
         <button type="submit" class="btn btn-primary">Subscribe</button>
@@ -1015,14 +1032,18 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 (function(){
   var f=document.getElementById('newsForm');if(!f)return;
   var st=document.getElementById('nf-status'),em=document.getElementById('nf-email');
+  f.addEventListener('change',function(e){if(e.target.name==='LABEL')document.getElementById('nf-os').classList.remove('invalid');});
   function msg(t,c){st.textContent=t;st.className='fn-msg'+(c?' '+c:'');}
   f.addEventListener('submit',async function(e){
     e.preventDefault();
     var v=em.value.trim();
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){msg('Please enter a valid email address.','err');em.focus();return;}
+    var nm=f.FIRSTNAME.value.trim();if(!nm){msg('Please enter your first name.','err');f.FIRSTNAME.focus();return;}
+    var os=f.querySelector('input[name=LABEL]:checked'),osb=document.getElementById('nf-os');
+    if(!os){osb.classList.add('invalid');msg('Please choose iPhone or Android, so we only send you news for your phone.','err');return;}
     if(f.email_address_check.value)return;
     var btn=f.querySelector('button');btn.disabled=true;msg('Sending...','');
-    var data=new FormData(f);data.set('EMAIL',v);
+    var data=new FormData(f);data.set('EMAIL',v);data.set('FIRSTNAME',nm);
     var ok=false;
     try{var r=await fetch(f.action+'?isAjax=1',{method:'POST',body:data});var j=await r.json();ok=!!(j&&j.success);}
     catch(err){try{await fetch(f.action,{method:'POST',body:data,mode:'no-cors'});ok=true;}catch(e2){ok=false;}}
