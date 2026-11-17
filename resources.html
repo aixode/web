@@ -274,13 +274,16 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 .fn-os input:checked+span{border-color:var(--orange);color:var(--fg);background:color-mix(in srgb,var(--orange) 12%,var(--bg3));}
 .fn-os input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px;}
 .fn-os.invalid span{border-color:#ff8a80;}
-@media (max-width:420px){.fn-form{grid-template-columns:1fr;}}
+.fn-os,.fn-form .btn{grid-column:1/-1;}
+.fn-os label,.fn-os span{min-width:0;}
+@media (max-width:520px){.fn-form{grid-template-columns:1fr;}}
 .fn-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
 .fn-note,.fn-msg{grid-column:1/-1;font-size:13px;color:var(--text-dim);}
 .fn-note a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
 .fn-msg:empty{display:none;}
 .fn-msg{font-size:14px;font-weight:500;}
 .fn-msg.ok{color:#7ee2a8;}.fn-msg.err{color:#ff8a80;}
+.fn-msg.ok,.fn-msg.err{padding:12px 14px;border-radius:12px;background:color-mix(in srgb,currentColor 12%,transparent);font-size:15px;}
 :root[data-theme="light"] .fn-msg.ok{color:#15803d;}:root[data-theme="light"] .fn-msg.err{color:#b91c1c;}
 @media (max-width:900px){.foot-news{flex-direction:column;align-items:stretch;padding:24px 20px;}.fn-form{width:100%;}}
 .foot-brand p{color:var(--text-muted);font-size:15px;margin:16px 0 22px;max-width:280px;}
@@ -1020,7 +1023,7 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
     try{var r=await fetch(f.action+'?isAjax=1',{method:'POST',body:data});var j=await r.json();ok=!!(j&&j.success);if(!ok&&j&&j.message)why=j.message;}
     catch(err){try{await fetch(f.action,{method:'POST',body:data,mode:'no-cors'});ok=true;}catch(e2){ok=false;}}
     btn.disabled=false;btn.textContent=bt;
-    if(ok){f.reset();msg('Almost done! Check your inbox and confirm your subscription.','ok');}
+    if(ok){f.reset();msg('Almost done! We just sent you an email. Open it and click the confirmation link to start getting news. (Check your spam folder if it is not there in a few minutes.)','ok');st.scrollIntoView({block:'nearest',behavior:'smooth'});}
     else{msg(why||'Something went wrong. Please try again later.','err');}
   });
 })();
