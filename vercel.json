@@ -11,7 +11,12 @@
               { "source": "/product-page/ultra-slim-laptop", "destination": "/", "permanent": true },
               { "source": "/product-page/bluetooth-headset-pro", "destination": "/", "permanent": true },
               { "source": "/bluetoot/:path*", "destination": "/", "permanent": true },
-                    { "source": "/favicon.ico", "destination": "/assets/favicon.png", "permanent": true }
+                    { "source": "/favicon.ico", "destination": "/assets/favicon.png", "permanent": true },
+              { "source": "/instagram", "destination": "/?utm_source=instagram&utm_medium=bio&utm_campaign=prelaunch#download", "permanent": false },
+              { "source": "/tiktok", "destination": "/?utm_source=tiktok&utm_medium=bio&utm_campaign=prelaunch#download", "permanent": false },
+              { "source": "/facebook", "destination": "/?utm_source=facebook&utm_medium=bio&utm_campaign=prelaunch#download", "permanent": false },
+              { "source": "/snapchat", "destination": "/?utm_source=snapchat&utm_medium=bio&utm_campaign=prelaunch#download", "permanent": false },
+              { "source": "/linkedin", "destination": "/?utm_source=linkedin&utm_medium=bio&utm_campaign=prelaunch#download", "permanent": false }
       ],
       "rewrites": [
               { "source": "/mission", "destination": "/mission.html" },
