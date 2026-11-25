@@ -1,4 +1,6 @@
 {
+      "buildCommand": "node scripts/legal-sync.js",
+      "outputDirectory": ".",
       "redirects": [
               { "source": "/missionandvision", "destination": "/mission", "permanent": true },
               { "source": "/pricing-plans/plans-pricing", "destination": "/pricing", "permanent": true },
@@ -17,10 +19,11 @@
               { "source": "/pricing", "destination": "/pricing.html" },
               { "source": "/support", "destination": "/support.html" },
               { "source": "/privacy", "destination": "/privacy.html" },
-              { "source": "/terms", "destination": "/terms.html" },
-              { "source": "/delete-account", "destination": "/delete-account.html" },
               { "source": "/coming-soon", "destination": "/coming-soon.html" },
-              { "source": "/resources", "destination": "/resources.html" }
+              { "source": "/resources", "destination": "/resources.html" },
+              { "source": "/resources/:slug", "destination": "/resources/:slug.html" },
+              { "source": "/delete-account", "destination": "/delete-account.html" },
+              { "source": "/terms", "destination": "/terms.html" }
       ],
       "headers": [
               {

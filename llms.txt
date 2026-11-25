@@ -1,0 +1,39 @@
+# Aixode
+
+> Aixode is a free app for iPhone, iPad and Android that gives people the freedom to spend their time on what matters to them. Users set a daily screen-time goal, choose apps that are blocked automatically when the goal is reached (they unlock at midnight), see where their time goes, and create reminders for the moments that matter, like family meals or bedtime. Tagline: "Screen less. Live more."
+
+Key facts:
+- Company: Aixode AS, founded 2025 in Vennesla, Norway (org. no. 936 051 901). Founder & CEO: Criyonit Kayoka.
+- Price: free. All current features are free, no card needed. Optional Premium features are planned for later.
+- Platforms: iPhone and iPad (App Store) and Android (Google Play).
+- Privacy: screen-time data is stored securely in Norway, data is never sold, GDPR compliant. Accounts and data can be deleted at any time.
+- Sign-in: email with a one-time 6-digit code, no password.
+- App blocking: when the daily goal is reached, the apps the user chose are blocked until midnight (phone's local time), then unblock automatically. Users get a warning at 50% of their goal and 10 minutes before reaching it, and can turn blocking off at any time in Settings. Changes take effect immediately.
+- Contact: contact@aixode.com
+
+## Main pages
+- [Home](https://www.aixode.com/): features, how it works, who it's for
+- [Pricing](https://www.aixode.com/pricing): what is free today and what is coming
+- [Help center](https://www.aixode.com/support): setup, app blocking, reminders, account and privacy questions
+- [About](https://www.aixode.com/about): the story and team behind Aixode
+- [Mission & Vision](https://www.aixode.com/mission)
+- [Coming soon](https://www.aixode.com/coming-soon): planned features
+- [Privacy Policy](https://www.aixode.com/privacy)
+- [Terms and Conditions](https://www.aixode.com/terms)
+
+## Articles
+- [What is Aixode and how does it work?](https://www.aixode.com/resources/what-is-aixode): Aixode is a free iPhone and Android app that helps you spend less time on your phone: set a daily screen-time goal, block the apps you want to use less, and see where your time goes.
+- [How to set a screen-time goal you'll actually keep](https://www.aixode.com/resources/screen-time-goal-you-can-keep): A practical, five-step way to set a daily screen-time goal that fits your life: start from your real numbers, aim a little lower, plan for your trigger moments, and give it time.
+- [7 small habits that free up time from your phone](https://www.aixode.com/resources/small-habits-more-free-time): Seven simple, research-backed habits that give you more time and focus: fewer notifications, phone-free rooms, a charger outside the bedroom and more.
+- [More quality time together: screen habits for families](https://www.aixode.com/resources/more-quality-time-together): How families can make more room for time together: agree on a family media plan, create screen-free zones, lead by example and use gentle reminders for the moments that matter.
+
+## Download (from 5 January 2027)
+- [App Store](https://apps.apple.com/app/id6759220870)
+- [Google Play](https://play.google.com/store/apps/details?id=com.aixode.app)
+
+## Social
+- [LinkedIn](https://www.linkedin.com/company/aixode)
+- [Instagram](https://www.instagram.com/aixodeapp/)
+- [Facebook](https://www.facebook.com/aixodeapp)
+- [Snapchat](https://www.snapchat.com/add/aixodeapp)
+- [TikTok](https://www.tiktok.com/@aixodeapp)

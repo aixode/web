@@ -25,12 +25,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Delete your account - Aixode</title>
+  <title>Delete your Aixode account - Step by step</title>
   <meta name="apple-itunes-app" content="app-id=6759220870">
   <meta name="description" content="How to delete your Aixode account and personal data, in the app or by sending us a request.">
   <link rel="canonical" href="https://www.aixode.com/delete-account">
 
-  <meta property="og:title" content="Delete your account - Aixode">
+  <meta property="og:title" content="Delete your Aixode account - Step by step">
   <meta property="og:description" content="How to delete your Aixode account and personal data, in the app or by sending us a request.">
   <meta property="og:url" content="https://www.aixode.com/delete-account">
   <meta property="og:type" content="website">
@@ -42,7 +42,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://www.aixode.com/assets/og-image.jpg">
-  <meta name="twitter:title" content="Delete your account - Aixode">
+  <meta name="twitter:title" content="Delete your Aixode account - Step by step">
   <meta name="twitter:description" content="How to delete your Aixode account and personal data, in the app or by sending us a request.">
 
   <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon.png">
@@ -58,14 +58,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://www.aixode.com/#organization",
     "name": "Aixode",
     "url": "https://www.aixode.com",
     "logo": "https://www.aixode.com/assets/favicon.png",
-    "description": "Aixode helps you and your loved ones break free from unhealthy phone habits, sleep better, and focus on what truly matters.",
+    "description": "Aixode is a free app for iPhone and Android that gives you the freedom to spend your time on what matters to you. Set a daily screen-time goal, block the apps you want to use less, and make room for the moments that matter.",
     "legalName": "Aixode AS",
     "foundingDate": "2025",
-    "foundingLocation": {"@type": "Place", "name": "Vennesla, Norway"},
-    "sameAs": ["https://www.linkedin.com/company/aixode"]
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Vennesla, Norway"
+    },
+    "email": "contact@aixode.com",
+    "sameAs": [
+      "https://www.linkedin.com/company/aixode",
+      "https://www.instagram.com/aixodeapp/",
+      "https://www.facebook.com/aixodeapp",
+      "https://www.snapchat.com/add/aixodeapp",
+      "https://www.tiktok.com/@aixodeapp"
+    ]
   }
   </script>
   <script type="application/ld+json">
@@ -260,17 +271,30 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 .foot-news{display:flex;justify-content:space-between;align-items:center;gap:32px;padding:28px 32px;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface);margin-bottom:56px;}
 .fn-title{font-family:'Figtree',sans-serif;font-size:20px;font-weight:700;color:var(--fg);margin-bottom:6px;}
 .fn-copy p:not(.fn-title){color:var(--text-muted);font-size:15px;max-width:440px;}
-.fn-form{display:grid;grid-template-columns:1fr auto;gap:10px;width:min(100%,460px);flex-shrink:0;}
-.fn-form input[type=email]{height:52px;padding:0 16px;border-radius:12px;border:1px solid var(--border2);background:var(--bg3);color:var(--fg);font:inherit;font-size:15px;outline:none;transition:border-color .2s;min-width:0;}
-.fn-form input[type=email]::placeholder{color:var(--text-dim);}
-.fn-form input[type=email]:focus{border-color:var(--orange);}
+.fn-form{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:min(100%,480px);flex-shrink:0;}
+.fn-form input[type=email],.fn-form input[type=text]{height:52px;padding:0 16px;border-radius:12px;border:1px solid var(--border2);background:var(--bg3);color:var(--fg);font:inherit;font-size:15px;outline:none;transition:border-color .2s;min-width:0;}
+.fn-form input[type=email]::placeholder,.fn-form input[type=text]::placeholder{color:var(--text-dim);}
+.fn-form input[type=email]:focus,.fn-form input[type=text]:focus{border-color:var(--orange);}
 .fn-form .btn{height:52px;}
-.fn-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+.fn-os{display:grid;grid-template-columns:1fr 1fr;gap:10px;border:0;padding:0;margin:0;min-width:0;}
+.fn-os label{position:relative;cursor:pointer;}
+.fn-os input{position:absolute;opacity:0;width:1px;height:1px;}
+.fn-os span{display:flex;align-items:center;justify-content:center;gap:7px;height:52px;padding:0 10px;border-radius:12px;border:1px solid var(--border2);background:var(--bg3);color:var(--text-muted);font-size:15px;font-weight:600;transition:border-color .2s,color .2s,background .2s;}
+.fn-os span i{font-size:18px;}
+.fn-os label:hover span{color:var(--fg);}
+.fn-os input:checked+span{border-color:var(--orange);color:var(--fg);background:color-mix(in srgb,var(--orange) 12%,var(--bg3));}
+.fn-os input:focus-visible+span{outline:2px solid var(--orange);outline-offset:2px;}
+.fn-os.invalid span{border-color:#ff8a80;}
+.fn-os,.fn-form .btn{grid-column:1/-1;}
+.fn-os label,.fn-os span{min-width:0;}
+@media (max-width:520px){.fn-form{grid-template-columns:1fr;}}
+.fn-hp{display:none !important;}
 .fn-note,.fn-msg{grid-column:1/-1;font-size:13px;color:var(--text-dim);}
 .fn-note a{color:inherit;text-decoration:underline;text-underline-offset:3px;}
 .fn-msg:empty{display:none;}
 .fn-msg{font-size:14px;font-weight:500;}
 .fn-msg.ok{color:#7ee2a8;}.fn-msg.err{color:#ff8a80;}
+.fn-msg.ok,.fn-msg.err{padding:12px 14px;border-radius:12px;background:color-mix(in srgb,currentColor 12%,transparent);font-size:15px;}
 :root[data-theme="light"] .fn-msg.ok{color:#15803d;}:root[data-theme="light"] .fn-msg.err{color:#b91c1c;}
 @media (max-width:900px){.foot-news{flex-direction:column;align-items:stretch;padding:24px 20px;}.fn-form{width:100%;}}
 .foot-brand p{color:var(--text-muted);font-size:15px;margin:16px 0 22px;max-width:280px;}
@@ -725,8 +749,8 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 <div class="site-top" id="siteTop">
 <div class="announce" id="announce">
   <a href="/#download" class="announce-link">
-    <span class="sr-only">Launch edition coming soon to iOS and Android.</span>
-    <span class="marquee" aria-hidden="true"><span class="marquee-track"><span class="m-item"><strong>Launch edition</strong> coming soon to iOS and Android.</span></span></span>
+    <span class="sr-only">Launch edition coming 5 January. Get notified!</span>
+    <span class="marquee" aria-hidden="true"><span class="marquee-track"><span class="m-item"><strong>Launch edition coming 5 January.</strong> <span class="m-cta">Get notified!</span></span></span></span>
   </a>
 </div>
 
@@ -776,7 +800,7 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
     </ul>
 
     <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode"><i class="ph-bold ph-sun"></i><i class="ph-bold ph-moon"></i></button>
-    <a href="/#download" class="btn btn-primary nav-cta">Get the app</a>
+    <a href="/#download" class="btn btn-primary nav-cta">Get notified</a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel"><i class="ph-bold ph-list"></i></button>
   </div>
 </header>
@@ -797,7 +821,7 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
   </div>
   <div class="m-group"><a class="m-link" href="/resources">Resources</a></div>
   <div class="m-group"><a class="m-link" href="/support">Support</a></div>
-  <a href="/#download" class="btn btn-primary">Get the app</a>
+  <a href="/#download" class="btn btn-primary">Get notified</a>
 </nav>
 
 <main>
@@ -856,9 +880,16 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
         <p>Practical tips for less screen time, and news about the app. No spam, and you can unsubscribe at any time.</p>
       </div>
       <form class="fn-form" id="newsForm" action="https://b66a4857.sibforms.com/serve/MUIFACyEkWe0VV_aglPk_xAuhhsJywoVaP1nNJ6maUSzYya7T2ZpbFhn3SsOeHnhMQEWueFnFHIgdWUA8pVWuH3bbMrUp78e7fJd1qthxUzsz-xjXx0vtJ8mFautaLpxZQOd9I7k_mkjGjex4FsbVBTSnYUulOtmL5DWBSBhtC-f-RzZXoySQ5jVpj538DDzPehEYTfDsuOsuBjt8A==" method="post" novalidate>
+        <label for="nf-name" class="sr-only">Full name</label>
+        <input id="nf-name" type="text" name="FULLNAME" placeholder="Full name" autocomplete="name" maxlength="100" required>
         <label for="nf-email" class="sr-only">Email address</label>
         <input id="nf-email" type="email" name="EMAIL" placeholder="Your email address" autocomplete="email" required>
-        <input type="text" name="email_address_check" value="" class="fn-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <fieldset class="fn-os" id="nf-os">
+          <legend class="sr-only">Which phone do you use?</legend>
+          <label><input type="radio" name="LABEL" value="Website;iphone" required><span><i class="ph-bold ph-apple-logo" aria-hidden="true"></i>iPhone</span></label>
+          <label><input type="radio" name="LABEL" value="Website;android"><span><i class="ph-bold ph-android-logo" aria-hidden="true"></i>Android</span></label>
+        </fieldset>
+        <input type="text" name="nf_trap" value="" class="fn-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <input type="hidden" name="locale" value="en">
         <button type="submit" class="btn btn-primary">Subscribe</button>
         <p class="fn-note">We'll send you an email to confirm your subscription. Read our <a href="/privacy">Privacy Policy</a>.</p>
@@ -869,16 +900,15 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
       <div class="foot-brand">
         <a href="/" class="logo" aria-label="Aixode home"><img class="logo-dark" src="/assets/aixode-logo.png" alt="Aixode"><img class="logo-light" src="/assets/aixode-logo-black.png" alt="Aixode"></a>
         <p>Screen less. Live more.</p>
-        <!-- TODO: replace "#" with the real Instagram, TikTok, Snapchat and Facebook profile links -->
         <div class="socials">
-          <a href="#" class="soc-instagram" aria-label="Aixode on Instagram" target="_blank" rel="noopener"><i class="ph-bold ph-instagram-logo"></i></a>
-          <a href="#" class="soc-tiktok" aria-label="Aixode on TikTok" target="_blank" rel="noopener"><i class="ph-bold ph-tiktok-logo"></i></a>
-          <a href="#" class="soc-snapchat" aria-label="Aixode on Snapchat" target="_blank" rel="noopener"><i class="ph-bold ph-snapchat-logo"></i></a>
-          <a href="#" class="soc-facebook" aria-label="Aixode on Facebook" target="_blank" rel="noopener"><svg class="fb-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
+          <a href="https://www.instagram.com/aixodeapp/" class="soc-instagram" aria-label="Aixode on Instagram" target="_blank" rel="noopener"><i class="ph-bold ph-instagram-logo"></i></a>
+          <a href="https://www.tiktok.com/@aixodeapp" class="soc-tiktok" aria-label="Aixode on TikTok" target="_blank" rel="noopener"><i class="ph-bold ph-tiktok-logo"></i></a>
+          <a href="https://www.snapchat.com/add/aixodeapp" class="soc-snapchat" aria-label="Aixode on Snapchat" target="_blank" rel="noopener"><i class="ph-bold ph-snapchat-logo"></i></a>
+          <a href="https://www.facebook.com/aixodeapp" class="soc-facebook" aria-label="Aixode on Facebook" target="_blank" rel="noopener"><svg class="fb-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
           <a href="https://www.linkedin.com/company/aixode" class="soc-linkedin" aria-label="Aixode on LinkedIn" target="_blank" rel="noopener"><svg class="li-logo" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="3.2" fill="#fff"/><circle cx="5.4" cy="5.5" r="2.15" fill="#0A66C2"/><rect x="3.55" y="9" width="3.7" height="11.4" fill="#0A66C2"/><path fill="#0A66C2" d="M9.6 9h3.55v1.6c.55-.98 1.85-1.95 3.75-1.95 3.4 0 4.05 2.2 4.05 5.1v6.65h-3.7v-5.9c0-1.4-.03-3.2-1.95-3.2-1.95 0-2.25 1.5-2.25 3.1v6h-3.45z"/></svg></a>
         </div>
       </div>
-      <div class="foot-col"><h4>Product</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#how-it-works">How it works</a></li><li><a href="/coming-soon">Coming soon</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/#download">Download</a></li></ul></div>
+      <div class="foot-col"><h4>Product</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#how-it-works">How it works</a></li><li><a href="/coming-soon">Coming soon</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/#download">Get notified</a></li></ul></div>
       <div class="foot-col"><h4>Company</h4><ul><li><a href="/mission">Mission &amp; Vision</a></li><li><a href="/mission#our-name">Our name</a></li><li><a href="/about">About</a></li><li><a href="/resources">Resources</a></li></ul></div>
       <div class="foot-col"><h4>Support</h4><ul><li><a href="/support">Help center</a></li><li><a href="mailto:contact@aixode.com">contact@aixode.com</a></li></ul></div>
       <div class="foot-col"><h4>Legal</h4><ul><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms and Conditions</a></li><li><button type="button" class="cookie-link" id="cookieSettings">Cookie settings</button></li><li><a href="/#privacy">Your data</a></li><li><a href="/delete-account">Delete account</a></li></ul></div>
@@ -992,20 +1022,25 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
 (function(){
   var f=document.getElementById('newsForm');if(!f)return;
   var st=document.getElementById('nf-status'),em=document.getElementById('nf-email');
+  f.addEventListener('change',function(e){if(e.target.name==='LABEL')document.getElementById('nf-os').classList.remove('invalid');});
   function msg(t,c){st.textContent=t;st.className='fn-msg'+(c?' '+c:'');}
   f.addEventListener('submit',async function(e){
     e.preventDefault();
     var v=em.value.trim();
+    var nm=f.FULLNAME.value.trim().replace(/\s+/g,' ');if(!nm){msg('Please enter your full name.','err');f.FULLNAME.focus();return;}
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){msg('Please enter a valid email address.','err');em.focus();return;}
-    if(f.email_address_check.value)return;
-    var btn=f.querySelector('button');btn.disabled=true;msg('Sending...','');
-    var data=new FormData(f);data.set('EMAIL',v);
-    var ok=false;
-    try{var r=await fetch(f.action+'?isAjax=1',{method:'POST',body:data});var j=await r.json();ok=!!(j&&j.success);}
+    var sp=nm.indexOf(' '),fn=sp<0?nm:nm.slice(0,sp),ln=sp<0?'':nm.slice(sp+1);
+    var os=f.querySelector('input[name=LABEL]:checked'),osb=document.getElementById('nf-os');
+    if(!os){osb.classList.add('invalid');msg('Please choose iPhone or Android, so we only send you news for your phone.','err');return;}
+    if(f.nf_trap.value)return;
+    var btn=f.querySelector('button[type=submit]'),bt=btn.textContent;btn.disabled=true;btn.textContent='Sending…';msg('','');
+    var data=new FormData(f);data.delete('FULLNAME');data.delete('nf_trap');data.set('email_address_check','');data.set('EMAIL',v);data.set('FIRSTNAME',fn);if(ln)data.set('LASTNAME',ln);
+    var ok=false,why='';
+    try{var r=await fetch(f.action+'?isAjax=1',{method:'POST',body:data});var j=await r.json();ok=!!(j&&j.success);if(!ok&&j&&j.message)why=j.message;}
     catch(err){try{await fetch(f.action,{method:'POST',body:data,mode:'no-cors'});ok=true;}catch(e2){ok=false;}}
-    btn.disabled=false;
-    if(ok){f.reset();msg('Almost done! Check your inbox and confirm your subscription.','ok');}
-    else{msg('Something went wrong. Please try again later.','err');}
+    btn.disabled=false;btn.textContent=bt;
+    if(ok){f.reset();msg('Almost done! We just sent you an email. Open it and click the confirmation link to start getting news. (Check your spam folder if it is not there in a few minutes.)','ok');st.scrollIntoView({block:'nearest',behavior:'smooth'});}
+    else{msg(why||'Something went wrong. Please try again later.','err');}
   });
 })();
 </script>
