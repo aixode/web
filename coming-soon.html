@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <script>
-/* Theme: saved choice, otherwise the device setting (dark if unknown) */
+/* Theme: saved choice, otherwise dark */
 (function(){var t;try{t=localStorage.getItem('aixode_theme');}catch(e){}
-if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';}
+if(t!=='light'&&t!=='dark'){t='dark';}
 document.documentElement.setAttribute('data-theme',t);})();
 </script>
 <meta name="color-scheme" content="dark light">
@@ -1002,8 +1002,6 @@ footer{border-top:1px solid var(--border);padding:80px 0 36px;background:var(--b
   if(btn){label();btn.addEventListener('click',function(){
     var t=root.getAttribute('data-theme')==='light'?'dark':'light';root.setAttribute('data-theme',t);
     try{localStorage.setItem('aixode_theme',t);}catch(e){}saved=t;label();});}
-  if(window.matchMedia){var mq=matchMedia('(prefers-color-scheme: light)');var on=function(e){if(saved!=='light'&&saved!=='dark'){root.setAttribute('data-theme',e.matches?'light':'dark');if(btn)label();}};
-    if(mq.addEventListener)mq.addEventListener('change',on);else if(mq.addListener)mq.addListener(on);}
 })();
 </script>
 <script>
