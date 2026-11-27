@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://www.aixode.com/support</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://www.aixode.com/resources</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -75,5 +75,9 @@
   <url>
     <loc>https://www.aixode.com/resources/more-quality-time-together</loc>
     <lastmod>2026-11-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.aixode.com/resources/recommended-screen-time-by-age</loc>
+    <lastmod>2026-11-27</lastmod>
   </url>
 </urlset>
